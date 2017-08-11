@@ -11,20 +11,26 @@ import SwiftyJSON
 
 
 struct Contact {
-    let  id: Int
+    let  id: String
     let  email: String
     let  name: String
+    let  gender: String
     let  phone: Phone
 }
 
 extension Contact: JSONConvertable {
     
     static func fromJSON(_ json: JSON) -> Contact {
-        let id = json["id"].intValue
+        let id = json["id"].stringValue
         let email = json["email"].stringValue
         let name = json["name"].stringValue
+        let gender = json["gender"].stringValue
         let phone = Phone.fromJSON(json["phone"])
-        return Contact(id: id, email: email, name: name, phone: phone)
+        return Contact(id: id,
+                       email: email,
+                       name: name,
+                       gender: gender,
+                       phone: phone)
     }
 }
 
@@ -36,7 +42,6 @@ extension ContactsResponse: JSONConvertable {
     
     static func fromJSON(_ json: JSON) -> ContactsResponse {
         let results = Contact.fromJSONArray(json["contacts"].arrayValue)
-        print(results.count)
         return ContactsResponse(result: results)
     }
 }

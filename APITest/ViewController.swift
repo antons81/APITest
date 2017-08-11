@@ -12,6 +12,14 @@ import Alamofire
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var tableView: UITableView!
+    
+    var contactData = [Contact]() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,11 +31,23 @@ class ViewController: UIViewController {
     func req() {
         
         ServerHelper.shared.createRequest(url: HttpConstants.BASE_URL, method: .get, params: nil) { (contact: ContactsResponse) in
-            for contacts in contact.result {
-                debugPrint(contacts.name, contacts.email, contacts.phone.mobile)
-            }
+            self.contactData = contact.result
         }
     }
     
+}
+
+extension ViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return contactData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! Cell
+        let contact = contactData[indexPath.row]
+        cell.configure(contact)
+        return cell
+    }
 }
 

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1A641D459F5D646B08486B1B /* Pods_APITest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEE708D9C6434B14E85A3875 /* Pods_APITest.framework */; };
 		1E565D831F3DA49500E1503E /* APIData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1E565D811F3DA49500E1503E /* APIData.xcdatamodeld */; };
+		1E565D861F3DAB8A00E1503E /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E565D851F3DAB8A00E1503E /* CoreDataManager.swift */; };
+		1E565DA11F3DCB9F00E1503E /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E565DA01F3DCB9F00E1503E /* Cell.swift */; };
 		1E59A1C41EAA447B002A701B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E59A1C31EAA447B002A701B /* AppDelegate.swift */; };
 		1E59A1C61EAA447B002A701B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E59A1C51EAA447B002A701B /* ViewController.swift */; };
 		1E59A1C91EAA447B002A701B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E59A1C71EAA447B002A701B /* Main.storyboard */; };
@@ -23,6 +25,8 @@
 /* Begin PBXFileReference section */
 		1E50BEC71F3C5F7A000F04A5 /* APITest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = APITest.entitlements; sourceTree = "<group>"; };
 		1E565D821F3DA49500E1503E /* APIData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = APIData.xcdatamodel; sourceTree = "<group>"; };
+		1E565D851F3DAB8A00E1503E /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		1E565DA01F3DCB9F00E1503E /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		1E59A1C01EAA447B002A701B /* APITest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APITest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E59A1C31EAA447B002A701B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E59A1C51EAA447B002A701B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +96,22 @@
 			name = CoreDataModel;
 			sourceTree = "<group>";
 		};
+		1E565D841F3DAB6F00E1503E /* CoreDataManager */ = {
+			isa = PBXGroup;
+			children = (
+				1E565D851F3DAB8A00E1503E /* CoreDataManager.swift */,
+			);
+			name = CoreDataManager;
+			sourceTree = "<group>";
+		};
+		1E565D9F1F3DAE6D00E1503E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1E59A1C51EAA447B002A701B /* ViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		1E59A1B71EAA447B002A701B = {
 			isa = PBXGroup;
 			children = (
@@ -113,14 +133,16 @@
 		1E59A1C21EAA447B002A701B /* APITest */ = {
 			isa = PBXGroup;
 			children = (
+				1E565D841F3DAB6F00E1503E /* CoreDataManager */,
 				1E565D801F3DA29D00E1503E /* CoreDataModel */,
-				1E50BEC71F3C5F7A000F04A5 /* APITest.entitlements */,
-				1E59A1C31EAA447B002A701B /* AppDelegate.swift */,
-				1E59A1C51EAA447B002A701B /* ViewController.swift */,
+				1E565D9F1F3DAE6D00E1503E /* Controllers */,
 				1E565D7F1F3DA1A800E1503E /* Helper */,
 				1E565D7D1F3DA19700E1503E /* Model */,
 				1E565D7E1F3DA19E00E1503E /* Extensions */,
 				1E59A1C71EAA447B002A701B /* Main.storyboard */,
+				1E565DA01F3DCB9F00E1503E /* Cell.swift */,
+				1E59A1C31EAA447B002A701B /* AppDelegate.swift */,
+				1E50BEC71F3C5F7A000F04A5 /* APITest.entitlements */,
 				1E59A1CA1EAA447B002A701B /* Assets.xcassets */,
 				1E59A1CC1EAA447B002A701B /* LaunchScreen.storyboard */,
 				1E59A1CF1EAA447B002A701B /* Info.plist */,
@@ -278,6 +300,8 @@
 				1E59A1C61EAA447B002A701B /* ViewController.swift in Sources */,
 				1E565D831F3DA49500E1503E /* APIData.xcdatamodeld in Sources */,
 				1E59A1C41EAA447B002A701B /* AppDelegate.swift in Sources */,
+				1E565D861F3DAB8A00E1503E /* CoreDataManager.swift in Sources */,
+				1E565DA11F3DCB9F00E1503E /* Cell.swift in Sources */,
 				1EB964491EADD67E00F77D9E /* Contacts.swift in Sources */,
 				1ED97A261F2FC03B00DD902B /* Phone.swift in Sources */,
 				1E59A1D61EAA448C002A701B /* ServerHelper.swift in Sources */,
