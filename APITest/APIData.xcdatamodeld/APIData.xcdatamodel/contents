@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="17A330h" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+    <entity name="Phones" representedClassName="Phones" isAbstract="YES" syncable="YES" codeGenerationType="class">
+        <attribute name="home" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mobile" optional="YES" syncable="YES"/>
+        <attribute name="work" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Profile" representedClassName="Profile" syncable="YES" codeGenerationType="class">
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gender" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="toPhones" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Phones" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Profile" positionX="-234" positionY="-9" width="128" height="118"/>
+        <element name="Phones" positionX="-54" positionY="-10" width="128" height="88"/>
+    </elements>
 </model>

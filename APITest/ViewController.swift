@@ -7,19 +7,27 @@
 //
 
 import UIKit
+import Alamofire
+
 
 class ViewController: UIViewController {
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        self.req()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    
+    func req() {
+        
+        ServerHelper.shared.createRequest(url: HttpConstants.BASE_URL, method: .get, params: nil) { (contact: ContactsResponse) in
+            for contacts in contact.result {
+                debugPrint(contacts.name, contacts.email, contacts.phone.mobile)
+            }
+        }
     }
-
-
+    
 }
 

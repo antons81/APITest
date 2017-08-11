@@ -10,33 +10,34 @@ import Foundation
 import SwiftyJSON
 
 
-public protocol JSONConvertible {
-    static func fromJSON(_ json: JSON) -> Self
+struct Contact {
+    let  id: Int
+    let  email: String
+    let  name: String
+    let  phone: Phone
 }
 
-extension JSONConvertible {
-    static func fromJSONArray(_ json: [JSON]) -> [Self] {
-        return json.map { Self.fromJSON($0) }
-    }
-}
-
-
-struct Contacts: JSONConvertible {
-    //let  id: Int
-    //let  email: String
-    //let  phone: String
-    let contacts: Any
-}
-
-extension Contacts {
+extension Contact: JSONConvertable {
     
-    static func fromJSON(_ json: JSON) -> Contacts {
-        //let id = json["id"].intValue
-        //let email = json["email"].stringValue
-        //let phone = json["phone"].stringValue
-        let contacts = json["contacts"].arrayObject
-        //return Contacts(id: id, email: email, phone: phone)
-        return Contacts(contacts: contacts ?? [])
+    static func fromJSON(_ json: JSON) -> Contact {
+        let id = json["id"].intValue
+        let email = json["email"].stringValue
+        let name = json["name"].stringValue
+        let phone = Phone.fromJSON(json["phone"])
+        return Contact(id: id, email: email, name: name, phone: phone)
     }
-
 }
+
+struct ContactsResponse {
+    let result: [Contact]
+}
+
+extension ContactsResponse: JSONConvertable {
+    
+    static func fromJSON(_ json: JSON) -> ContactsResponse {
+        let results = Contact.fromJSONArray(json["contacts"].arrayValue)
+        print(results.count)
+        return ContactsResponse(result: results)
+    }
+}
+
